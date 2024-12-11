@@ -7,14 +7,12 @@ const teamSlice = createSlice({
     },
     reducers: {
         add: (state, action) => {
-            if (!state.value.includes(action.payload)) {
+            if (!state.value.some(item => item.name === action.payload.name)) {
                 state.value.push(action.payload)
             }
         },
         remove: (state, action) => {
-            if (state.value.includes(action.payload)) {
-                state.value = state.value.filter(item => item !== action.payload)       
-            }
+            state.value = state.value.filter(item => item.name !== action.payload.name)       
         },
     }
 });
