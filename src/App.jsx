@@ -15,7 +15,7 @@ function App() {
         <Route path="/pokemon" Component={Pokemon} />
 
     </Routes>
-</BrowserRouter>
+  </BrowserRouter>
   )
 }
 

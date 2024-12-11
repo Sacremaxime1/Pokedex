@@ -1,5 +1,6 @@
+import { PokeData } from "../common/Api"
 export const Hompage = () => {
     return (
-        <div>Homepage</div>
+        <PokeData/>
     )
 }
