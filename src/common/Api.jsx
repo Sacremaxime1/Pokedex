@@ -11,7 +11,7 @@ export function PokeData() {
         const fetchData = async () => {
             try {
                 setLoading(true); // Commence le chargement
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon"); // Limite à 10 pour simplifier
+                const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1008"); // Limite à 10 pour simplifier
                 setData(response.data.results); // Stocke uniquement le tableau de résultats
                 setError(false);
             } catch (err) {
