@@ -12,7 +12,7 @@ function App() {
     <Routes>
         <Route path="/" Component={Hompage} />
         <Route path="/team" Component={Team} />
-        <Route path="/pokemon" Component={Pokemon} />
+        <Route path="/pokemon/:name" Component={Pokemon}/>
 
     </Routes>
   </BrowserRouter>

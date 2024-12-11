@@ -1,5 +1,7 @@
+import { PokemonDetails } from "./PokemonDetails"
+
 export const Pokemon = () => {
     return (
-        <div>Pokemon</div>
+        <PokemonDetails/>
     )
 }
