@@ -46,7 +46,6 @@ export function PokeData() {
                             alt={item.name}/>
                        <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
                        <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>+</button>
-                       {/* <button onClick={() => {dispatch(add(item.name))}}>+</button> */}
                     </li>
                 ))}
             </ul>
