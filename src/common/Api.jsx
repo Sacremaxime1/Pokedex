@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux"
 import { useState, useEffect } from "react";
+import {add, remove} from "../features/teamSlice"
 import axios from "axios";
 
 
@@ -6,7 +8,8 @@ export function PokeData() {
     const [ data, setData ] = useState(null);
     const[ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(false);
-
+    const dispatch = useDispatch()
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -41,6 +44,9 @@ export function PokeData() {
                         <img
                             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
                             alt={item.name}/>
+                       <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
+                       <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>+</button>
+                       {/* <button onClick={() => {dispatch(add(item.name))}}>+</button> */}
                     </li>
                 ))}
             </ul>
