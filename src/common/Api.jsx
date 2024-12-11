@@ -5,7 +5,7 @@ import axios from "axios";
 export function PokeData() {
     const [ data, setData ] = useState(null);
     const[ loading, setLoading ] = useState(true);
-    const [ error, setError ] = useState(null);
+    const [ error, setError ] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
