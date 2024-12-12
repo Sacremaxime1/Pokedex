@@ -8,11 +8,13 @@ import { Card } from '../pokecard/Pokecard';
 
 
 export function PokeData() {
-    const [ data, setData ] = useState(null);
+    const [ data, setData ] = useState([]);
     const[ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(false);
+    const [query, setQuery] = useState('')
     const dispatch = useDispatch()
-    
+
+    const filteredPokemon = data.filter((item) => item.name.includes(query))
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -41,8 +43,9 @@ export function PokeData() {
     return(
         <div>
             <h1>Pokedex</h1>
+            <input type="text" placeholder="nom de pokemon" value={query} onChange={(e) => setQuery(e.target.value)} />
             <ul>
-                {data.map((item, index) => {
+                {filteredPokemon.map((item, index) => {
                     const id = item.url.split("/").filter(Boolean).pop();
                     return (
                         <li key={id}>
