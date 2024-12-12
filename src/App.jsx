@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from './components/Navbar'
-import {Hompage} from './components/Homepage'
+import {Homepage} from './components/Homepage'
 import { Pokemon } from './components/Pokemon'
 import { Team } from './components/Team'
 import { useSelector } from 'react-redux';
@@ -16,9 +16,9 @@ function App() {
     <BrowserRouter>
     <Navbar />
     <Routes>
-        <Route path="/" Component={Hompage} />
+        <Route path="/" Component={Homepage} />
         <Route path="/team" Component={Team} />
-        <Route path="/pokemon/:name" Component={Pokemon}/>
+        <Route path="/pokemon/:name" Component={Pokemon} />
 
     </Routes>
   </BrowserRouter>
