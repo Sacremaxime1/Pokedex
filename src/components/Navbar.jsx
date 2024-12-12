@@ -1,3 +1,4 @@
+import './Navbar.css';
 import { Link } from "react-router-dom"
 import { toggleTheme } from "../features/themeSlice"
 import { useDispatch } from "react-redux"
@@ -7,6 +8,7 @@ export const Navbar = () => {
     const dispatch = useDispatch()
     
     return (
+
         <div>
             <nav>
                 <Link to="/">homepage</Link> | <Link to="/Team">Team </Link>

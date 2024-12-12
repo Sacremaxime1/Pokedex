@@ -1,0 +1,9 @@
+nav {
+    padding-left: 20px;
+    height: 10vh;
+    
+    border-bottom: 1px solid grey;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
