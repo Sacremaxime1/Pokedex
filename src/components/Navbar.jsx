@@ -1,10 +1,19 @@
 import './Navbar.css';
 import { Link } from "react-router-dom"
+import { toggleTheme } from "../features/themeSlice"
+import { useDispatch } from "react-redux"
+
 
 export const Navbar = () => {
+    const dispatch = useDispatch()
+    
     return (
-        <nav>
-            <Link to="/">Homepage</Link> | <Link to="/Team">Team</Link>
-        </nav>
+
+        <div>
+            <nav>
+                <Link to="/">homepage</Link> | <Link to="/Team">Team </Link>
+            </nav>
+            <button onClick={() => {dispatch(toggleTheme())}}>toggle theme</button>
+        </div>
     )
 }
