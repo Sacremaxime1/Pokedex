@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {add, remove} from "../features/teamSlice"
 import axios from "axios";
 import { Card } from '../pokecard/Pokecard';
+import { Search } from './Search';
 
 
 export function PokeData() {
@@ -40,10 +41,12 @@ export function PokeData() {
     if (error) {
         return <p>Liste introuvable</p>
     }
+    console.log(filteredPokemon);
+    
     return(
         <div>
             <h1>Pokedex</h1>
-            <input type="text" placeholder="nom de pokemon" value={query} onChange={(e) => setQuery(e.target.value)} />
+            <input type='text' placeholder="nom de pokemon" value={query} onChange={(e) => setQuery(e.target.value)} />
             <ul>
                 {filteredPokemon.map((item, index) => {
                     const id = item.url.split("/").filter(Boolean).pop();

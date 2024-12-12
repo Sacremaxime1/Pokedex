@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./PokemonDetails.css"
 export function PokemonDetails() {
     const { name } = useParams();
     const [pokemon, setPokemon] = useState(null);
@@ -36,9 +36,9 @@ export function PokemonDetails() {
     }
 
     return (
-        <div>
-            <h1>{pokemon.name}</h1>
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+        <div className="pokedetail">
+            <h1 className="pokename">{pokemon.name}</h1>
+            <img className="detailImg" src={pokemon.sprites.front_default} alt={pokemon.name} />
             <p>Type(s): {pokemon.types.map((type) => type.type.name).join(", ")}</p>
             <p>Poid: {pokemon.weight}</p>
             <p>Taille: {pokemon.height}</p>
