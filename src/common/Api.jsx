@@ -1,5 +1,5 @@
 import './Api.css';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {add, remove} from "../features/teamSlice"
@@ -14,6 +14,7 @@ export function PokeData() {
     const [ error, setError ] = useState(false);
     const [query, setQuery] = useState('')
     const dispatch = useDispatch()
+    const pokemonTeam = useSelector((state) => state.team.value)
 
     const filteredPokemon = data.filter((item) => item.name.includes(query))
     useEffect(() => {
@@ -41,7 +42,12 @@ export function PokeData() {
         return <p>Liste introuvable</p>
     }
     console.log(filteredPokemon);
-    
+    const removePokemon = (pokemon) => {
+        dispatch(remove(pokemon))
+    }
+    const addPokemon = (pokemon) => {
+        pokemonTeam.length < 6 ? dispatch(add(pokemon)) : alert("Limite de Pokemon Atteinte")
+    }
     return(
         <div>
             <h1>Pokedex</h1>
@@ -49,16 +55,18 @@ export function PokeData() {
             <ul>
                 {filteredPokemon.map((item, index) => {
                     const id = item.url.split("/").filter(Boolean).pop();
+                    const alreadyTeam = pokemonTeam.some(e => e.name === item.name)
                     return (
                         <li key={id}>
                             <Card name={item.name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={item.name} id={id}></Card>
-                            <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
-                            <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>+</button>
+                            <button onClick={() => {removePokemon({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`})}}>-</button>
+                            {
+                               !alreadyTeam && <button onClick={() => {addPokemon({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`})}}>+</button>
+                            }
                         </li>
                     )
-                }
-                    
-                )}
+                }   
+            )}
             </ul>
         </div>
     )
