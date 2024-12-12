@@ -6,11 +6,13 @@ import axios from "axios";
 
 
 export function PokeData() {
-    const [ data, setData ] = useState(null);
+    const [ data, setData ] = useState([]);
     const[ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState(false);
+    const [query, setQuery] = useState('')
     const dispatch = useDispatch()
-    
+
+    const filteredPokemon = data.filter((item) => item.name.includes(query))
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -38,8 +40,9 @@ export function PokeData() {
     return(
         <div>
             <h1>Pokedex</h1>
+            <input type="text" placeholder="nom de pokemon" value={query} onChange={(e) => setQuery(e.target.value)} />
             <ul>
-                {data.map((item, index) => {
+                {filteredPokemon.map((item, index) => {
                     const id = item.url.split("/").filter(Boolean).pop();
                     return (
                         <li key={id}>
@@ -47,8 +50,8 @@ export function PokeData() {
                                 <p> {item.id} {item.name}</p>
                                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={item.name}/>
                             </Link>
-                            <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
-                            <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>+</button>
+                            <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}))}}>-</button>
+                            <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}))}}>+</button>
                         </li>
                     )
                 }
