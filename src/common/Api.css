@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Gabarito:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rufina:wght@400;700&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+li {
+    padding: 10px;
+    margin: 10px;
+    background-color: azure;
+    text-align: center;
+    border-radius: 15px;
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: Gabarito;
+}
+
+h1 {
+    margin: 30px;
+    text-align: center;
+    font-family: Gabarito;
+}

@@ -1,4 +1,5 @@
-import { useDispatch } from "react-redux"
+import './Api.css';
+import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {add, remove} from "../features/teamSlice"
@@ -15,7 +16,8 @@ export function PokeData() {
         const fetchData = async () => {
             try {
                 setLoading(true); // Commence le chargement
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1008"); // Limite à 10 pour simplifier
+                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0`); // Limite à 10 pour simplifier
+                console.log(response);
                 setData(response.data.results); // Stocke uniquement le tableau de résultats
                 setError(false);
             } catch (err) {
