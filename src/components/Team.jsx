@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { remove } from "../features/teamSlice"
-import { Link } from "react-router-dom"
+import { Button } from "./button/Button"
 
 export const Team = () => {
     const dispatch = useDispatch()
@@ -12,13 +12,11 @@ export const Team = () => {
         <ul>
             {pokemonTeam.map((item, index) => (
                 <li key={index}>
-                    <Link to={`/pokemon/${item.name}`}>
-                       <p>{item.name}</p>
-                        <img
-                          src={item.img}
-                          alt={item.name}/>
-                    </Link>
-                    <button onClick={() => {dispatch(remove({name: item.name, img: item.img}))}}>-</button>
+                    <p>{item.name}</p>
+                    <img
+                        src={item.img}
+                        alt={item.name}/>
+                    <Button text="-" onClickBtn={() => {dispatch(remove({name: item.name, img: item.img}))}}></Button>
                 </li>
             ))}
         </ul>

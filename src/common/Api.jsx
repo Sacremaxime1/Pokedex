@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {add, remove} from "../features/teamSlice"
+import { Button } from "../components/button/Button";
 import axios from "axios";
 
 
@@ -47,8 +48,8 @@ export function PokeData() {
                                 <p> {item.id} {item.name}</p>
                                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={item.name}/>
                             </Link>
-                            <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
-                            <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>+</button>
+                            <Button text="-" onClickBtn={() => dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}></Button>
+                            <Button text="+" onClickBtn={() => dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}></Button>
                         </li>
                     )
                 }
