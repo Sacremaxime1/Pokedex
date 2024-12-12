@@ -46,7 +46,7 @@ export function PokeData() {
                     return (
                         <li key={id}>
                             <Link to={`/pokemon/${item.name}`}>
-                                <p> {item.id} {item.name}</p>
+                                <p>{item.name}</p>
                                 <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={item.name}/>
                             </Link>
                             <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
