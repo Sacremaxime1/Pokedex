@@ -13,8 +13,6 @@ export function PokemonDetails() {
             try {
                 setLoading(true);
                 const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-                console.log(response);
-                
                 setPokemon(response.data);
                 setError(false)
 ;            } catch (err) {
