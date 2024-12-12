@@ -11,7 +11,6 @@ function App() {
   const isDarkMode = useSelector(state => state.darkMode.value)
   useEffect(()=> {
     isDarkMode ? document.body.classList.add("dark") : document.body.classList.remove("dark")
-
   },[isDarkMode])
   return (
     <BrowserRouter>
