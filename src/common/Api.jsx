@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {add, remove} from "../features/teamSlice"
 import axios from "axios";
+import { Card } from '../pokecard/Pokecard';
 
 
 export function PokeData() {
@@ -45,10 +46,7 @@ export function PokeData() {
                     const id = item.url.split("/").filter(Boolean).pop();
                     return (
                         <li key={id}>
-                            <Link to={`/pokemon/${item.name}`}>
-                                <p>{item.name}</p>
-                                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={item.name}/>
-                            </Link>
+                            <Card name={item.name} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={item.name} id={id}></Card>
                             <button onClick={() => {dispatch(remove({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>-</button>
                             <button onClick={() => {dispatch(add({name: item.name, id: index + 1, img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}))}}>+</button>
                         </li>
