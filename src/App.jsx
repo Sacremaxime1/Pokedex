@@ -4,9 +4,14 @@ import { Navbar } from './components/Navbar'
 import {Hompage} from './components/Homepage'
 import { Pokemon } from './components/Pokemon'
 import { Team } from './components/Team'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function App() {
-
+  const isDarkMode = useSelector(state => state.darkMode.value)
+  useEffect(()=> {
+    isDarkMode ? document.body.classList.add("dark") : document.body.classList.remove("dark")
+  },[isDarkMode])
   return (
     <BrowserRouter>
     <Navbar />
