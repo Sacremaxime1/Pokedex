@@ -1,0 +1,19 @@
+.pokedetail {
+    margin: 30px;
+}
+
+.pokename {
+    display: flex;
+    align-items: flex-start;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-family: Gabarito;
+}
+
+.detailImg {
+    background-color: azure;
+    border-radius: 15px;
+    padding: 2rem;
+}
