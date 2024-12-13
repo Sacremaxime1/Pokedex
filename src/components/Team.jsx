@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { remove } from "../features/teamSlice"
-import { Card } from "../pokecard/Pokecard"
+import { Card } from "./pokecard/Pokecard"
 export const Team = () => {
     const dispatch = useDispatch()
     const pokemonTeam = useSelector((state) => state.team.value)    
