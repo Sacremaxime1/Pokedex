@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
     <Navbar />
     <Routes>
-        <Route path="/" Component={Homepage} />
+        <Route path="/Pokedex" Component={Homepage} />
         <Route path="/team" Component={Team} />
         <Route path="/pokemon/:name" Component={Pokemon} />
 

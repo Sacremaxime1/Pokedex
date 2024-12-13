@@ -11,7 +11,7 @@ export const Navbar = () => {
 
         <div>
             <nav>
-                <Link to="/">homepage</Link> | <Link to="/Team">Team </Link>
+                <Link to="/Pokedex">homepage</Link> | <Link to="/Team">Team </Link>
             </nav>
             <button onClick={() => {dispatch(toggleTheme())}}>toggle theme</button>
         </div>
