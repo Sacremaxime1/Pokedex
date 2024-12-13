@@ -1,6 +1,6 @@
 import './Navbar.css';
 import { Link } from "react-router-dom"
-import { toggleTheme } from "../features/themeSlice"
+import { toggleTheme } from "../../features/themeSlice"
 import { useDispatch } from "react-redux"
 
 

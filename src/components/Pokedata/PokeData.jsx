@@ -1,11 +1,9 @@
 import './Api.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import {add, remove} from "../features/teamSlice"
+import {add, remove} from "../../features/teamSlice"
 import axios from "axios";
 import { Card } from '../pokecard/Pokecard';
-import { Search } from './Search';
 
 
 export function PokeData() {
@@ -41,7 +39,6 @@ export function PokeData() {
     if (error) {
         return <p>Liste introuvable</p>
     }
-    console.log(filteredPokemon);
     const removePokemon = (pokemon) => {
         dispatch(remove(pokemon))
     }

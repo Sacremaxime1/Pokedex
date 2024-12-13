@@ -1,4 +1,4 @@
-import { PokeData } from "../common/Api"
+import { PokeData } from "./Pokedata/PokeData"
 export const Homepage = () => {
     return (
         <PokeData/>
