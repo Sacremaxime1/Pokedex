@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar } from './components/Navbar'
+import { Navbar } from './components/Navbar/Navbar'
 import {Homepage} from './components/Homepage'
 import { Pokemon } from './components/Pokemon'
 import { Team } from './components/Team'
