@@ -1,9 +1,9 @@
-import './Api.css';
+import './Pokedata.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import {add, remove} from "../../features/teamSlice"
 import axios from "axios";
-import { Card } from '../pokecard/Pokecard';
+import { Card } from '../pokecard/Pokecard.jsx';
 
 
 export function PokeData() {

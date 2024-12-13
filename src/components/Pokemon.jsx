@@ -1,4 +1,4 @@
-import { PokemonDetails } from "./PokemonDetails"
+import { PokemonDetails } from "./PokemonDetails/PokemonDetails.jsx"
 
 export const Pokemon = () => {
     return (
