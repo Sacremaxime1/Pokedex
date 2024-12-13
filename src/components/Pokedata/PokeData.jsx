@@ -18,15 +18,15 @@ export function PokeData() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                setLoading(true); // Commence le chargement
-                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0`); // Limite à 10 pour simplifier
-                setData(response.data.results); // Stocke uniquement le tableau de résultats
+                setLoading(true);
+                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0`);
+                setData(response.data.results);
                 setError(false);
             } catch (err) {
                 console.error(err);
                 setError(true);
             } finally {
-                setLoading(false); // Arrête le chargement
+                setLoading(false);
             }
         };
         fetchData();
